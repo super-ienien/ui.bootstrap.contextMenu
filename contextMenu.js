@@ -516,7 +516,8 @@
         }
 
         function removeAllContextMenus(e) {
-          $document.find('body').off('mousedown touchstart', removeOnOutsideClickEvent);
+          $document.find('body')[0].removeEventListener('mousedown', removeOnOutsideClickEvent);
+          $document.find('body')[0].removeEventListener('touchstart', removeOnOutsideClickEvent);
           $document.off('scroll', removeOnScrollEvent);
           $(_clickedElement).removeClass('context');
           removeContextMenus();
@@ -589,7 +590,8 @@
               }
 
               // Remove if the user clicks outside
-              $document.find('body').on('mousedown touchstart', removeOnOutsideClickEvent);
+              $document.find('body')[0].addEventListener('mousedown', removeOnOutsideClickEvent, true);
+              $document.find('body')[0].addEventListener('touchstart', removeOnOutsideClickEvent, true);
               // Remove the menu when the scroll moves
               $document.on('scroll', removeOnScrollEvent);
 
