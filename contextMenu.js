@@ -554,7 +554,7 @@
 
         function appendDivider($ul) {
           var $li = angular.element('<li>');
-          $li.addClass('divider');
+          $li.addClass('dropdown-divider');
           $ul.append($li);
         }
 
